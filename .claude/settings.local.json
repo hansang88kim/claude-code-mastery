@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find ~ -maxdepth 1 -name .*claudecode* -o -name .*CLAUDE* -o -name .*PROMPT*)",
+      "Bash(/c/Users/hansa/.CLAUDE_PROMPT_INDEX.txt:*)"
+    ]
+  },
+  "outputStyle": "Beginner Friendly"
+}

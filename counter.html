@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카운터 앱</title>
+    <!-- Tailwind CSS를 CDN에서 불러옵니다 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- 전체 페이지를 가운데 정렬하고 배경색을 회색으로 설정 -->
+    <div class="flex items-center justify-center min-h-screen bg-gray-100">
+        <!-- 카운터 앱 컨테이너: 흰색 배경, 테두리, 그림자 효과 -->
+        <div class="bg-white rounded-lg shadow-lg p-8 w-96">
+            <!-- 제목 -->
+            <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">
+                카운터 앱
+            </h1>
+
+            <!-- 카운트 표시 영역 -->
+            <div class="bg-blue-50 rounded-lg p-8 mb-8 border-2 border-blue-200">
+                <!-- 카운트 숫자를 표시하는 부분 -->
+                <p class="text-center text-6xl font-bold text-blue-600" id="counter">
+                    0
+                </p>
+                <!-- 카운트 라벨 -->
+                <p class="text-center text-gray-600 mt-2">현재 카운트</p>
+            </div>
+
+            <!-- 버튼들을 배치하는 영역 -->
+            <div class="flex gap-4 mb-4">
+                <!-- 감소 버튼 (-1) -->
+                <button
+                    class="flex-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 transform hover:scale-105 active:scale-95"
+                    onclick="decreaseCounter()">
+                    -1
+                </button>
+
+                <!-- 증가 버튼 (+1) -->
+                <button
+                    class="flex-1 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200 transform hover:scale-105 active:scale-95"
+                    onclick="increaseCounter()">
+                    +1
+                </button>
+            </div>
+
+            <!-- 리셋 버튼 -->
+            <button
+                class="w-full bg-blue-400 hover:bg-blue-500 active:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition duration-200 transform hover:scale-105 active:scale-95"
+                onclick="resetCounter()">
+                리셋
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript 로직 -->
+    <script>
+        // 카운트값을 저장할 변수 (초기값: 0)
+        let count = 0;
+
+        // 증가 함수: 버튼을 클릭하면 카운트를 1 증가시킵니다
+        function increaseCounter() {
+            count++;  // count를 1 증가
+            updateDisplay();  // 화면에 표시된 숫자를 업데이트
+        }
+
+        // 감소 함수: 버튼을 클릭하면 카운트를 1 감소시킵니다
+        function decreaseCounter() {
+            count--;  // count를 1 감소
+            updateDisplay();  // 화면에 표시된 숫자를 업데이트
+        }
+
+        // 리셋 함수: 카운트를 0으로 초기화합니다
+        function resetCounter() {
+            count = 0;  // count를 0으로 설정
+            updateDisplay();  // 화면에 표시된 숫자를 업데이트
+        }
+
+        // 화면 업데이트 함수: 현재 카운트값을 HTML에 반영합니다
+        function updateDisplay() {
+            // id="counter"인 요소를 찾아서 그 안의 텍스트를 현재 count값으로 변경
+            document.getElementById('counter').textContent = count;
+        }
+    </script>
+</body>
+</html>
